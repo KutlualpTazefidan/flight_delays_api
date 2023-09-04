@@ -25,3 +25,7 @@ async def scoring_endpoint(item:FlightInfo):
     df = pd.DataFrame([item.model_dump().values()], columns = item.model_dump().keys() )
     y_pred = model.predict(df)
     return {"prediction":int(y_pred)}
+
+@app.get('/')
+def info_message():
+    return "API to estimate flight delays"
