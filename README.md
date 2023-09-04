@@ -10,8 +10,13 @@ python -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
-
-```sh
-python -m venv .venv
-.venv\Scripts\Activate.ps1
 ````
+
+activate
+
+````
+source .venv/bin/activate
+````
+
+Running API using uvicorn:
+uvicorn flight_delay_ml_api:app --reload
