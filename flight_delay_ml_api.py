@@ -12,7 +12,7 @@ app = FastAPI()
 # Configure CORS to allow requests from your Next.js app's domain
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://flight-delay-api.onrender.com"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["Content-Type"],
