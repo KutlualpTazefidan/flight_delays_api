@@ -1,11 +1,23 @@
 # Libraries
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 from pydantic import BaseModel
 import pandas as pd
 import sklearn
 import joblib
 
 app = FastAPI()
+
+# Configure CORS to allow requests from your Next.js app's domain
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://flight-delay-api.onrender.com"],
+    allow_credentials=True,
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type"],
+)
+
 
 class FlightInfo(BaseModel):
   arrstn: int
