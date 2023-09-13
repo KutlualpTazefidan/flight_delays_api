@@ -20,11 +20,16 @@ app.add_middleware(
 
 
 class FlightInfo(BaseModel):
-  arrstn: int
-  depstn: int
-  std: int
-  sta: int
-
+  departure_airport: str
+  departure_city: str
+  departure_country: str
+  departure_time: str
+  arrival_airport: str
+  arrival_city: str
+  arrival_country: str
+  arrival_time:str
+  airline:str
+ 
 loaded_model = joblib.load("api_test_logistic_regression_model.joblib")
 
 if isinstance(loaded_model, sklearn.base.BaseEstimator):
