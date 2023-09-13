@@ -1,4 +1,4 @@
-# models.py
+# Schema
 from pydantic import BaseModel
 
 class FlightInfo(BaseModel):
