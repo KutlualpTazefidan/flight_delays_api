@@ -1,9 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
-
 from schemas.flight_info import FlightInfo
-import sklearn
-import joblib
 import pandas as pd
 from config import settings  # Import application settings
 from utils.model_loader import load_model
