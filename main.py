@@ -1,7 +1,7 @@
 # Libraries
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api.routes.flight_prediction import predict_flight_delay
+from api.routes import flight_prediction
 from config import settings  # Import application settings
 
 app = FastAPI()
@@ -20,4 +20,4 @@ def info_message():
     return "API to estimate flight delays, available routes: /prediction"
 
 # Include the prediction router
-app.include_router(predict_flight_delay.router, prefix="/prediction")
+app.include_router(flight_prediction.router, prefix="/prediction")

@@ -19,10 +19,10 @@ source .venv/bin/activate
 ```
 
 Running API using uvicorn:
-uvicorn flight_delay_ml_api:app --reload
+uvicorn main:app --reload
 
 For render:
-uvicorn flight_delay_ml_api:app --host 0.0.0.0 --port 10000
+uvicorn main:app --host 0.0.0.0 --port 10000
 
 Freezing pip installs:
 
