@@ -7,7 +7,7 @@ import joblib
 import pandas as pd
 from config import settings  # Import application settings
 from utils.model_loader import load_model
-from utils.data_preprocessing import preprocess_data
+# from utils.data_preprocessing import preprocess_data
 
 router = APIRouter()
 
