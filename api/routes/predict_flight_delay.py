@@ -9,7 +9,7 @@ router = APIRouter()
 
 model = load_model(settings.MODEL_PATH)
 
-@router.post('/predict/')
+@router.post('/predict')
 async def predict_flight_delay(input_data: FlightInfo):
     try:
         # preprocessed_data = preprocess_data([input_data])
