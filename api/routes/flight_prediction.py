@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
+
 from schemas.flight_info import FlightInfo
 import sklearn
 import joblib
