@@ -1,7 +1,7 @@
 # Libraries
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.routes import prediction
+from api.routes import prediction
 from config import settings  # Import application settings
 
 app = FastAPI()

@@ -2,12 +2,24 @@
 ├── Procfile
 ├── README.md
 ├── __pycache__
-│   └── flight_delay_ml_api.cpython-311.pyc
-├── api_test_logistic_regression_model.joblib
+│   └── flight_delay_ml_api.cpython-310.pyc
+├── api
+│   └── routes
+│       └── flight_prediction.py
+├── config.py
 ├── file_structure.txt
-├── flight_delay_ml_api.py
+├── main.py
+├── models
+│   └── api_test_logistic_regression_model.joblib
 ├── requirements.txt
 ├── runtime.txt
-└── sample.json
+├── sample.json
+├── schemas
+│   └── flight_info.py
+├── tests
+│   └── test_flight_delay.py
+└── utils
+    ├── data_preprocessing.py
+    └── model_loader.py
 
-1 directory, 9 files
+7 directories, 15 files
