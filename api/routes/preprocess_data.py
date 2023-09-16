@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from schemas.flight_info import FlightInfo
 from utils.preprocessing.pipeline_1.preprocessing_pipeline import load_preprocessing_pipeline
-from utils.preprocessing.pipeline_1.custom_classes import ColumnNameFixer, CalculateDistance, CustomFeaturesAdder, DropColumns, LabelEncoderTransformer
+from utils.preprocessing.pipeline_1.custom_transformer_classes import ColumnNameFixer, CalculateDistance, CustomFeaturesAdder, DropColumns, LabelEncoderTransformer
 
 router = APIRouter()
 

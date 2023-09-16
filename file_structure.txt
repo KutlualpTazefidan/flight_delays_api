@@ -3,12 +3,13 @@
 ├── README.md
 ├── __pycache__
 │   ├── config.cpython-310.pyc
-│   ├── flight_delay_ml_api.cpython-310.pyc
 │   └── main.cpython-310.pyc
 ├── api
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   └── __init__.cpython-310.pyc
 │   └── routes
 │       ├── __pycache__
-│       │   ├── flight_prediction.cpython-310.pyc
 │       │   ├── predict_flight_delay.cpython-310.pyc
 │       │   └── preprocess_data.cpython-310.pyc
 │       ├── predict_flight_delay.py
@@ -17,7 +18,17 @@
 ├── file_structure.txt
 ├── main.py
 ├── models
-│   └── api_test_logistic_regression_model.joblib
+├── pipelines_for_ml
+│   ├── README.md
+│   ├── __init__.py
+│   ├── ml_models
+│   │   ├── __init__.py
+│   │   └── api_test_logistic_regression_model.joblib
+│   ├── preprocessing
+│   │   ├── __init__.py
+│   │   ├── flight_data_preprocessing.py
+│   │   └── transformer_classes.py
+│   └── setup.py
 ├── requirements.txt
 ├── runtime.txt
 ├── sample.json
@@ -33,12 +44,13 @@
     ├── data_preprocessing.py
     ├── model_loader.py
     └── preprocessing
+        ├── __pycache__
         └── pipeline_1
             ├── __pycache__
-            │   ├── custom_classes.cpython-310.pyc
+            │   ├── custom_transformer_classes.cpython-310.pyc
             │   └── preprocessing_pipeline.cpython-310.pyc
-            ├── custom_classes.py
-            ├── preprocessing_pipeline.joblib
-            └── preprocessing_pipeline.py
+            ├── custom_transformer_classes.py
+            ├── preprocessing_pipeline.py
+            └── preprocessing_pipeline_imported_classes.joblib
 
-13 directories, 28 files
+18 directories, 35 files

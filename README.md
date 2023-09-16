@@ -29,3 +29,9 @@ Freezing pip installs:
 ```
 pip freeze > requirements.txt
 ```
+
+Cleaning cache:
+
+```
+find . -name "*.pyc" -exec rm -f {} \;
+```
