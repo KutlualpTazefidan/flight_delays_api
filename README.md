@@ -21,7 +21,7 @@ source .venv/bin/activate
 Running API using uvicorn:
 uvicorn main:app --reload
 
-For render:
+To run on local host:
 uvicorn main:app --host 0.0.0.0 --port 10000
 
 Freezing pip installs:
@@ -34,4 +34,6 @@ Cleaning cache:
 
 ```
 find . -name "*.pyc" -exec rm -f {} \;
+find . -type d -name __pycache__ -exec rm -r {} +
+
 ```
