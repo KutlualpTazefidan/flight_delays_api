@@ -17,17 +17,46 @@
 ├── config.py
 ├── file_structure.txt
 ├── main.py
-├── models
 ├── pipelines_for_ml
+│   ├── LICENSE
 │   ├── README.md
 │   ├── __init__.py
-│   ├── ml_models
+│   ├── __pycache__
+│   │   └── __init__.cpython-310.pyc
+│   ├── ml_modeling
 │   │   ├── __init__.py
-│   │   └── api_test_logistic_regression_model.joblib
+│   │   ├── classes
+│   │   │   └── __init__.py
+│   │   └── pipeline
+│   │       ├── __init__.py
+│   │       └── api_test_logistic_regression_model.joblib
 │   ├── preprocessing
 │   │   ├── __init__.py
-│   │   ├── flight_data_preprocessing.py
-│   │   └── transformer_classes.py
+│   │   ├── __pycache__
+│   │   │   └── __init__.cpython-310.pyc
+│   │   ├── classes
+│   │   │   ├── __init__.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── __init__.cpython-310.pyc
+│   │   │   │   ├── flight_data_transformers.cpython-310.pyc
+│   │   │   │   └── transformers.cpython-310.pyc
+│   │   │   ├── flight_data_transformers.py
+│   │   │   └── transformers.py
+│   │   └── flight_data
+│   │       ├── __init__.py
+│   │       ├── __pycache__
+│   │       │   ├── __init__.cpython-310.pyc
+│   │       │   └── flight_data_complete_preprocessing.cpython-310.pyc
+│   │       ├── deserialize.py
+│   │       ├── flight_data_complete_preprocessing.py
+│   │       └── serialized_data
+│   │           ├── add_additional_flight_data_features.pkl
+│   │           ├── calculate_flight_distance.pkl
+│   │           ├── column_name_fixer.pkl
+│   │           ├── drop_columns.pkl
+│   │           ├── label_encoder_transformer.pkl
+│   │           └── preprocessing_pipeline.pkl
+│   ├── requirements.txt
 │   └── setup.py
 ├── requirements.txt
 ├── runtime.txt
@@ -39,18 +68,10 @@
 ├── tests
 │   └── test_flight_delay.py
 └── utils
-    ├── __pycache__
-    │   └── model_loader.cpython-310.pyc
-    ├── data_preprocessing.py
-    ├── model_loader.py
-    └── preprocessing
+    └── pipelines
         ├── __pycache__
-        └── pipeline_1
-            ├── __pycache__
-            │   ├── custom_transformer_classes.cpython-310.pyc
-            │   └── preprocessing_pipeline.cpython-310.pyc
-            ├── custom_transformer_classes.py
-            ├── preprocessing_pipeline.py
-            └── preprocessing_pipeline_imported_classes.joblib
+        │   └── model_loader.cpython-310.pyc
+        ├── model_loader.py
+        └── preprocessing_pipeline.py
 
-18 directories, 35 files
+23 directories, 51 files
