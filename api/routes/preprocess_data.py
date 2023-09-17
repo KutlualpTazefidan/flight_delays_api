@@ -1,15 +1,26 @@
+import pandas as pd
 from fastapi import APIRouter, HTTPException
 from schemas.flight_info import FlightInfo
-from utils.preprocessing.pipeline_1.preprocessing_pipeline import load_preprocessing_pipeline
-from utils.preprocessing.pipeline_1.custom_transformer_classes import ColumnNameFixer, CalculateDistance, CustomFeaturesAdder, DropColumns, LabelEncoderTransformer
+from pipelines_for_ml.preprocessing.flight_data.flight_data_complete_preprocessing import create_preprocessing_pipeline
+import logging  # Import the logging module
+# Configure the logging settings
+logging.basicConfig(level=logging.ERROR)  # Set the logging level to DEBUG
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
 @router.post('/preprocessdata')
 async def preprocess_data(input_data: FlightInfo):
     try:
-        preprocessing_pipeline = load_preprocessing_pipeline()
-        # preprocessed_data = preprocessing_pipeline.transform(input_data)
-        return {"preprocessed": input_data}
+        # Create a dictionary from the FlightInfo object
+        data_dict = input_data.model_dump()
+
+        # Convert the dictionary to a DataFrame with a single row
+        df = pd.DataFrame([data_dict])
+        flight_prep_pipeline = create_preprocessing_pipeline()
+        preprocessed_data = flight_prep_pipeline.transform(df)
+
+        return {"preprocessed": preprocessed_data}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"Error in load_preprocessing_pipeline: {str(e)}")
+        raise

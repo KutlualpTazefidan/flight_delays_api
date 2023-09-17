@@ -1,7 +1,7 @@
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import LabelEncoder
 
-class ColumnNameFixer(BaseEstimator, TransformerMixin):
+class FixColumnNames(BaseEstimator, TransformerMixin):
     """
     A transformer to fix column names by replacing spaces and hyphens.
 
@@ -41,6 +41,16 @@ class ColumnNameFixer(BaseEstimator, TransformerMixin):
         """
         X.columns = X.columns.str.replace(' ', '_').str.lower().str.replace('-', '_')
         return X
+    
+    def get_state(self):
+        # Return a dictionary with any essential attributes
+        return {}
+
+    @classmethod
+    def from_state(cls, state):
+        # Create an instance of the class using the state dictionary
+        return cls()
+    
 
 class DropColumns(BaseEstimator, TransformerMixin):
     """
@@ -94,6 +104,15 @@ class DropColumns(BaseEstimator, TransformerMixin):
         """
         X.drop(self.columns_to_drop, axis=1, inplace=True)
         return X
+    
+    def get_state(self):
+        # Return a dictionary with any essential attributes
+        return {'columns_to_drop': self.columns_to_drop}
+
+    @classmethod
+    def from_state(cls, state):
+        # Create an instance of the class using the state dictionary
+        return cls(columns_to_drop=state['columns_to_drop'])
 
 class LabelEncoderTransformer(BaseEstimator, TransformerMixin):
     def __init__(self, columns):
@@ -137,5 +156,27 @@ class LabelEncoderTransformer(BaseEstimator, TransformerMixin):
         """
         X_encoded = X.copy()
         for col, label_encoder in self.label_encoders.items():
-            X_encoded[col] = label_encoder.transform(X_encoded[col])
+            X_encoded[col] = label_encoder.transform(X_encoded[col]).astype(float)
+       
         return X_encoded
+    
+    def get_state(self):
+        state = {
+            'columns': self.columns,
+            'label_encoders': {col: label_encoder.classes_.tolist() for col, label_encoder in self.label_encoders.items()}
+        }
+        return state
+
+    @classmethod
+    def from_state(cls, state):
+        columns = state['columns']
+        label_encoders = {col: LabelEncoder() for col in columns}
+
+        for col, classes in state['label_encoders'].items():
+            label_encoder = label_encoders[col]
+            label_encoder.classes_ = classes
+
+        instance = cls(columns=columns)
+        instance.label_encoders = label_encoders
+
+        return instance
